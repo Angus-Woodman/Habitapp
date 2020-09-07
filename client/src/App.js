@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect} from "react-router-do
 import Login from "./Containers/Login";
 import Register from "./Containers/Register";
 import Dashboard from "./Containers/Dashboard";
+import WelcomePage from "./Containers/WelcomePage"
 
 toast.configure();
 
@@ -40,6 +41,7 @@ function App() {
       <Fragment>
         <div className="container">
           <Switch>
+            <Route exact path='/' component={WelcomePage} />
             <Route
               exact
               path="/login"

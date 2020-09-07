@@ -8,9 +8,7 @@ app.use(express.json());
 app.use(cors())
 
 //ROUTES
-
 //register and login ROUTES
-
 app.use("/auth", require("./routes/jwtAuth"))
 
 //dashboard ROUTE
