@@ -1,9 +1,11 @@
 import React from 'react';
 
 class AddHabitList extends React.Component {
+// set correct id from prop from fetch in dashboard container
     state = {
-        habitInput: '',
-        habitFrequency: '1'
+        id: '',
+        habit: '',
+        Frequency: '1'
     }
 
     handleInput = (e) => {
@@ -11,14 +13,22 @@ class AddHabitList extends React.Component {
         this.setState({ [name]: value });
       };
 
-    addHabit = e => {
+    addHabit = async e => {
         e.preventDefault();
-        console.log(this.state);
+        try {
+          const body = this.state;
+          const response = await fetch(
+            "http://localhost:5000/dashboard/habits", {
+              method: "POST",
+              headers: {"Content-type": "application/json"},
+              body: JSON.stringify(body)
+            }
+          );
 
-        fetch('localhost:5000/dashboard/habits')
-        .then()
-        .catch(console.warn())
-    }
+        } catch (err) {
+          console.error(err.message);
+        }
+    };
 
     render() {
         return (
@@ -26,11 +36,11 @@ class AddHabitList extends React.Component {
             <button onClick={ this.props.closeModal }>Close Modal</button>
 
             <form onSubmit={ this.addHabit }>
-                <label htmlFor="enterHabit">Enter your habit:</label>
-                <input id='habitInput' name='habitInput' type='text' required onChange={ this.handleInput }></input>
+                <label htmlFor="habit">Enter your habit:</label>
+                <input id='habitInput' name='habit' type='text' required onChange={ this.handleInput }></input>
 
-                <label htmlFor="habitFrequency">How many times per week?</label>
-                <select name="habitFrequency" id="habitFrequency" required onChange={ this.handleInput }>
+                <label htmlFor="frequency">How many times per week?</label>
+                <select name="frequency" id="habitFrequency" required onChange={ this.handleInput }>
                     <option value={1}>1</option>
                     <option value={2}>2</option>
                     <option value={3}>3</option>

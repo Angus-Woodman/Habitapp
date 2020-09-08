@@ -8,7 +8,6 @@ router.get("/", authorize, async (req, res) => {
       "SELECT user_name FROM users WHERE user_id = $1",
       [req.user]
     );
-    console.log(req.user)
     res.json(user.rows[0]);
   } catch (err) {
     console.error(err.message);
@@ -16,6 +15,7 @@ router.get("/", authorize, async (req, res) => {
   }
 });
 
+// doesn't work with authorize maybe need to set correct id 
 router.post("/habits", async (req, res) => {
   try {
     const { id, habit, frequency } = req.body;
