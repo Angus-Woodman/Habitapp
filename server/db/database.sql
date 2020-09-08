@@ -13,8 +13,8 @@ VALUES ('6d235d99-50e0-4321-a443-4a5920d52132' , 'henry', 'henry123@gmail.com', 
 
 DROP TABLE IF EXISTS habits;
 
-CREATE TABLE habits(
-    user_id VARCHAR(50) NOT NULL,
+CREATE TABLE habits (
+    user_id uuid NOT NULL,
     habit VARCHAR(30) NOT NULL,
     frequency INT NOT NULL
 );
