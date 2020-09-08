@@ -33,8 +33,8 @@ const Dashboard = ({setAuth}) => {
       //   habits.push(parseRes[i].habit)
       //   freqs.push(parseRes[i].frequency)
       // }
-      // console.log(habits)
-      // console.log(freqs)
+    //   console.log(habits)
+    //   console.log(freqs)
       setName(parseRes.user_name);
       setFreq(parseRes.frequency);
       setHabit(parseRes.habit);
