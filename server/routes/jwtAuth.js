@@ -12,9 +12,9 @@ router.post ("/register", validInfo, async (req,res) => {
     const {name, email, password} = req.body;
 
     // 2. Check if user exists (if true then throw error)
-    const user = await pool.query("SELECT * FROM users WHERE user_email = $1", [email]);
+    const user = await pool.query("SELECT * FROM users WHERE user_email = $1 OR user_name = $2", [email, name]);
     if(user.rows.length !== 0) {
-      return res.status(401).send("User already exists")
+      return res.status(401).json("User already exists")
     }
 
     // 3. Bcrypt the user password
@@ -40,9 +40,7 @@ router.post("/login", validInfo, async (req, res) => {
         // 1. Destructure req.body
         const { email, password } = req.body;
         // 2. Check if user doesnt exist (if not, throw err)
-        const user = await pool.query("SELECT * FROM users WHERE user_email = $1",
-        [email]
-        );
+        const user = await pool.query("SELECT * FROM users WHERE user_email = $1", [email]);
         if(user.rows.length === 0) {
             return res.status(401).json("Password or email is incorrect");
         }

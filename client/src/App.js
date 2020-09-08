@@ -7,6 +7,7 @@ import Login from "./Containers/Login";
 import Register from "./Containers/Register";
 import Dashboard from "./Containers/Dashboard";
 import WelcomePage from "./Containers/WelcomePage"
+import Error404 from "./Containers/Error404"
 
 toast.configure();
 
@@ -57,6 +58,7 @@ function App() {
               path="/dashboard"
               render={props =>  isAuthenticated ? (<Dashboard {...props} setAuth={setAuth}/>) : (<Redirect to="/login"/>) }
             />
+            <Route component={Error404} />
           </Switch>
         </div>
     </Fragment>

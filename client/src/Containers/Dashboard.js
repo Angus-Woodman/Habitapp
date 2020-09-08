@@ -13,8 +13,6 @@ const Dashboard = ({setAuth}) => {
       });
 
       const parseRes = await res.json();
-      console.log(parseRes)
-      // also have acess to user_id
       setName(parseRes.user_name);
     } catch (err) {
       console.error(err.message);
