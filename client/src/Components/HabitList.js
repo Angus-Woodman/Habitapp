@@ -7,7 +7,8 @@ class HabitList extends React.Component {
         return (
             <>
             <div>
-                <h1>HELLO {this.props.habits[0].user_name}!</h1>
+                {this.props.habits.length !== 0 ? <h1>HELLO {this.props.habits[0].user_name}!</h1> : <h1>Hello</h1> }
+                {/* <h1>HELLO {this.props.habits[0].user_name}!</h1> */}
                 {this.props.habits.map((item, idx) => {
                     return (
                         <ul key={idx}>
