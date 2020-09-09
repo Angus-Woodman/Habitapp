@@ -8,10 +8,11 @@ const Register = ({setAuth}) => {
   const [inputs, setInputs] = useState({
     email: "",
     password: "",
+    passwordCopy: "",
     name: ""
   })
 
-  const {email, password, name} = inputs;
+  const {email, password, name, passwordCopy} = inputs;
 
   const onChange = e =>
     setInputs({ ...inputs, [e.target.name]: e.target.value });
@@ -55,6 +56,11 @@ const numberCheck = () => {
     return true
   }
 }
+const passwordsMatch = () => {
+  if (inputs.password === inputs.passwordCopy) {
+    return true
+  }
+}
   return (
     <Fragment>
     <h1> Register </h1>
@@ -75,7 +81,15 @@ const numberCheck = () => {
           placeholder="password"
           onChange={e => onChange(e)}
           className="form-control my-3"
-        />  
+        />
+        <input 
+        type='password'
+        name='passwordCopy'
+        value={passwordCopy}
+        placeholder='Re-type password'
+        onChange={e => onChange(e)}
+        className="form-control my-3"
+        />
         <input
           type="text"
           name="name"
@@ -84,9 +98,10 @@ const numberCheck = () => {
           onChange={e => onChange(e)}
           className="form-control my-3"
         />
-        <button disabled={inputs.password.length > 7 && numberCheck() ? false : true}className="btn btn-success btn-block">Submit</button>
+        <button disabled={inputs.password.length > 7 && numberCheck() && passwordsMatch() ? false : true}className="btn btn-success btn-block">Submit</button>
         <div className={inputs.password.length > 7 ? 'green' : 'red'}>Password must contain at least 7 characters</div>
         <div className={numberCheck() ? 'green' : 'red'}>Password must contain a number</div>
+        <div className={passwordsMatch() ? 'green' : 'red'}>Passwords must match</div>
       </form>
       
       <Link to="/login">Login</Link>
