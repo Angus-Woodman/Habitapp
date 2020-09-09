@@ -24,7 +24,23 @@ class HabitList extends React.Component {
         .then(console.log(newEvent))
         .catch(console.warn)
     }
-
+    
+    removeEvent = (habit, eventDate) => {
+        const deleteEvent = {
+            id: this.props.habits[0].user_id,
+            habit: habit,
+            date: eventDate
+        }
+        const options = {
+            method: 'DELETE',
+            body: JSON.stringify(deleteEvent),
+            headers: { 'Content-Type' : 'application/json' }
+        }
+        fetch(`http://localhost:5000/dashboard/events`, options)
+        .then(console.log(deleteEvent))
+        .catch(console.warn)
+    }
+    
     render() {
 
         return (
@@ -39,7 +55,7 @@ class HabitList extends React.Component {
                                     {item.habit}
                                 </li>
 
-                                <ToggleButton submitEvent={this.submitEvent} idx={idx} habit={item.habit}/> 
+                                <ToggleButton removeEvent={this.removeEvent} submitEvent={this.submitEvent} idx={idx} habit={item.habit}/> 
 
                                 <li>
                                     {item.frequency} times per week

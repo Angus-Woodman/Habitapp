@@ -59,4 +59,16 @@ router.post('/events', async (req, res) => {
   }
 })
 
+router.delete('/events', async (req, res) => {
+  try {
+    const { id, habit, date } = req.body
+    const user = await pool.query(
+      'DELETE FROM events WHERE user_id = $1 AND habit = $2 AND habitDate = $3', [id, habit, date]
+    )
+  } catch (err) {
+    console.error(err.message)
+    res.status(500).send("Server error")
+  }
+})
+
 module.exports = router;

@@ -14,7 +14,12 @@ class ToggleButton extends React.Component {
         const year = d.getFullYear()
         const dateNow = `${year}/${month}/${day}`
         console.log(dateNow)
-        this.props.submitEvent(this.props.habit, dateNow)
+        if (this.state.checked === false) {
+            this.props.submitEvent(this.props.habit, dateNow)
+        } else {
+            this.props.removeEvent(this.props.habit, dateNow)
+        }
+        
     }
     
     render() {
