@@ -1,7 +1,18 @@
-import React from 'react'
-import ToggleButton from "./ToggleButton"
+import React from 'react';
+import ToggleButton from "./ToggleButton";
+import ReactModal from 'react-modal';
+import HabitInfo from './HabitInfo';
 
 class HabitList extends React.Component {
+    state = { isModalOpen: false }
+
+    openModal = () => {
+        this.setState({ isModalOpen: true })
+    }
+
+    closeModal = () => {
+        this.setState({ isModalOpen: false })
+    }
 
     handleCheckbox = (e) => {
         this.setState({ checked: e.target.checked })
@@ -50,17 +61,22 @@ class HabitList extends React.Component {
 
                     {this.props.habits.map((item, idx) => {
                         return (
-                            <ul key={idx}>
-                                <li>
-                                    {item.habit}
-                                </li>
+                            <>
+                                <ul key={idx}>
+                                    <li>
+                                        <button onClick={ this.openModal }>{item.habit}</button>
+                                    </li>
 
-                                <ToggleButton removeEvent={this.removeEvent} submitEvent={this.submitEvent} idx={idx} habit={item.habit}/> 
+                                    <ToggleButton removeEvent={this.removeEvent} submitEvent={this.submitEvent} idx={idx} habit={item.habit}/> 
 
-                                <li>
-                                    {item.frequency} times per week
-                                </li>
-                            </ul>
+                                    <li>
+                                        {item.frequency} times per week
+                                    </li>
+                                </ul>
+                                <ReactModal isOpen= { this.state.isModalOpen }>
+                                    <HabitInfo closeModal={ this.closeModal } />
+                                </ReactModal>
+                            </>
                         )
                     })}
                 </div>
@@ -68,4 +84,5 @@ class HabitList extends React.Component {
         )
     }
 }
+
 export default HabitList
