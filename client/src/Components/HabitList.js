@@ -2,9 +2,25 @@ import React from 'react';
 import ToggleButton from "./ToggleButton";
 import ReactModal from 'react-modal';
 import HabitInfo from './HabitInfo';
+ReactModal.setAppElement("#root");
 
 class HabitList extends React.Component {
     state = { isModalOpen: false }
+
+    // componentDidMount() {
+    //     for(let i=0; i < this.props.habits.length; i++){
+    //         [{}, {}, {}]
+    //     }
+    // }
+
+    // componentDidMount() {
+    //     const array;
+
+    //     for(let i=0; i < this.props.habits.length; i++){
+    //         array = [...array, false];
+    //     }
+    //     this.setState({ isModalOpen: [...this.state.isModalOpen, ...array] })
+    // }
 
     openModal = () => {
         this.setState({ isModalOpen: true })
@@ -13,7 +29,7 @@ class HabitList extends React.Component {
     closeModal = () => {
         this.setState({ isModalOpen: false })
     }
-
+    
     handleCheckbox = (e) => {
         this.setState({ checked: e.target.checked })
         console.log(this.state.checked)
@@ -61,8 +77,8 @@ class HabitList extends React.Component {
 
                     {this.props.habits.map((item, idx) => {
                         return (
-                            <>
-                                <ul key={idx}>
+                            <div key={idx}>
+                                <ul >
                                     <li>
                                         <button onClick={ this.openModal }>{item.habit}</button>
                                     </li>
@@ -74,11 +90,12 @@ class HabitList extends React.Component {
                                     </li>
                                 </ul>
                                 <ReactModal isOpen= { this.state.isModalOpen }>
-                                    <HabitInfo closeModal={ this.closeModal } />
+                                    <HabitInfo isModalOpen={this.state.isModalOpen} habit={ item.habit } submitEvent={ this.submitEvent } closeModal={ this.closeModal } />
                                 </ReactModal>
-                            </>
+                            </ div>
                         )
                     })}
+                    
                 </div>
             </>
         )

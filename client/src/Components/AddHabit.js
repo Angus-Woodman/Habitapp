@@ -36,7 +36,7 @@ class AddHabitList extends React.Component {
             <button onClick={ this.props.closeModal }>Close Modal</button>
             <form onSubmit={ this.addHabit }>
                 <label htmlFor="habit">Enter your habit:</label>
-                <input id='habitInput' name='habit' type='text' required onChange={ this.handleInput }></input>
+                <input id='habitInput' name='habit' type='text' required onChange={ this.handleInput } autoFocus></input>
                 <label htmlFor="frequency">How many times per week?</label>
                 <select name="frequency" id="habitFrequency" required onChange={ this.handleInput }>
                     <option value={1}>1</option>
