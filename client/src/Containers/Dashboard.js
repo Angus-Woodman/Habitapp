@@ -10,7 +10,7 @@ const Dashboard = ({setAuth}) => {
 
     const [name, setName] = useState("");
     const [user_id, setUserId] = useState("946649e9-54ea-447c-8a9e-244a9b155fda")
-    const [habits, setHabits] = useState([{}]);
+    const [habits, setHabits] = useState([{ user_id: '6d235d99-50e0-4321-a443-4a5920d52132', habit: 'Running', habitdate: '2020-10-10' }]);
     const [isModalOpen, setModalOpen] = useState(false);
 
     const getName = async () => {

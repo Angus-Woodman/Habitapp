@@ -31,8 +31,5 @@ CREATE TABLE events(
     habitDate DATE DEFAULT CURRENT_DATE NOT NULL
 );
 
-INSERT INTO events (user_id, habit)
-VALUES ('6d235d99-50e0-4321-a443-4a5920d52132', 'Running');
-
 INSERT INTO events (user_id, habit, habitDate)
 VALUES ('6d235d99-50e0-4321-a443-4a5920d52132', 'Running', '2020-10-10');
