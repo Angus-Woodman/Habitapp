@@ -3,12 +3,23 @@ import { Link } from "react-router-dom"
 
 class HabitList extends React.Component {
     render() {
+
         return (
             <>
             <div>
-                <h1>HELLO {this.props.name}!</h1>
-                <p>your habit is {this.props.habit}</p>
-                <p>{this.props.frequency} times a week</p>
+                <h1>HELLO {this.props.habits[0].user_name}!</h1>
+                {this.props.habits.map((item, idx) => {
+                    return (
+                        <ul key={idx}>
+                            <li>
+                                {item.habit}
+                            </li>
+                            <li>
+                                {item.frequency} times per week
+                            </li>
+                        </ul>
+                    )
+                })}
             </div>
             </>
         )
