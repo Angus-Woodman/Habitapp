@@ -1,0 +1,24 @@
+#dashboardContainer {
+  margin-top: 10vh;
+  height: 50vh;
+}
+
+#dashboardHeading {
+  text-align: center;
+  width: 100%;
+  margin: auto;
+}
+
+#logoutButton {
+  margin:10px;
+  position: absolute;
+  top: 0;
+  right:0;
+}
+
+#addHabitButton {
+  margin:10px;
+  position: absolute;
+  top: 0;
+  left:0;
+}

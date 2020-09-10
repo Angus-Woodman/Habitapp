@@ -1,0 +1,53 @@
+#habitListContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+  border: black solid 1px;
+}
+
+.gridItem {
+  box-sizing: border-box;
+  padding: 10px;
+  border: rgba(255, 255, 255) 1px solid;
+  text-align: center;
+  background-color: lightgreen;
+  border-radius: 5px;
+  /* WHAT ARE THESE */
+  /* -webkit-transition: background-color 0.25s ease-out;
+  -moz-transition: background-color 0.25s ease-out;
+  -o-transition: background-color 0.25s ease-out;
+  transition: background-color 0.25s ease-out; */
+}
+
+.gridItem:hover {
+  background-color: rgba(46, 240, 46, 0.8);
+  border: green 1px solid;
+}
+
+@media screen and (max-width: 1450px) {
+  #gridContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+  }
+}
+
+@media screen and (max-width: 920px) {
+  #gridContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  #gridContainer {
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 10px;
+  }
+}
+
+#gridContainer,.gridItem{
+  color: black;
+}

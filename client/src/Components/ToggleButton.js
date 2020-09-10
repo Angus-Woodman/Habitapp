@@ -1,4 +1,5 @@
 import React from 'react'
+import "../styles/toggleButton.css";
 
 class ToggleButton extends React.Component {
 
@@ -24,7 +25,7 @@ class ToggleButton extends React.Component {
     render() {
         return (
             <>
-                <label htmlFor={this.props.idx}>Today</label>
+                <label htmlFor={this.props.idx}>Habit done for today: </label>
                 <input type="checkbox" checked={this.state.checked} onChange={this.handleCheckBox} id={this.props.idx} name={this.props.idx} value={this.props.idx} />
             </>
         )

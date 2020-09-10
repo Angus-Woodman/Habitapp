@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import HabitList from "../Components/HabitList";
 import ReactModal from 'react-modal';
 import AddHabit from '../Components/AddHabit';
+import "../styles/dashboard.css";
 ReactModal.setAppElement("#root");
 
 
@@ -68,19 +69,20 @@ const Dashboard = ({setAuth}) => {
 
     return (
         <Fragment>
-            <h1> Hello {name}!!!!! </h1>
+            <div id="dashboardContainer">
+                <h1 id="dashboardHeading"> Hello {name}!!!!! </h1>
 
-            <button onClick={ openModal }>Add habit</button>
-            <ReactModal isOpen={ isModalOpen }>
-                <AddHabit habits={habits} user_id={ user_id } closeModal = { closeModal } />
-            </ReactModal>
+                <button id="addHabitButton" onClick={ openModal }>Add habit</button>
+                <ReactModal isOpen={ isModalOpen }>
+                    <AddHabit habits={habits} user_id={ user_id } closeModal = { closeModal } />
+                </ReactModal>
 
-            <button onClick={e => logout(e)} className="btn btn-primary">
-                Logout
-            </button>
+                <button id="logoutButton" onClick={e => logout(e)} className="btn btn-primary">
+                    Logout
+                </button>
 
-            <HabitList habits={habits}/>
-
+                <HabitList habits={habits}/>
+            </div>
         </Fragment>
     );
 };

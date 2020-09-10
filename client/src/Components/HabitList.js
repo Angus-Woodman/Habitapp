@@ -2,6 +2,7 @@ import React from 'react';
 import ToggleButton from "./ToggleButton";
 import ReactModal from 'react-modal';
 import HabitInfo from './HabitInfo';
+import "../styles/habitList.css";
 ReactModal.setAppElement("#root");
 
 class HabitList extends React.Component {
@@ -58,26 +59,15 @@ class HabitList extends React.Component {
 
         return (
             <>
-                <div>
-                    {this.props.habits.length !== 0 ? <h1>HELLO {this.props.habits[0].user_name}!</h1> : <h1>Hello</h1> }
+                <div id="habitListContainer">
+                    {/*{this.props.habits.length !== 0 ? <h1>HELLO {this.props.habits[0].user_name}!</h1> : <h1>Hello</h1> */}
 
                     {this.props.habits.map((item, idx) => {
                         return (
-                            <div key={idx}>
-                                <ul >
-                                    <li>
-                                        <button id={idx} onClick={e => this.openModal(e) }>{item.habit}</button>
-                                    </li>
-
-                                    <ToggleButton removeEvent={this.removeEvent} submitEvent={this.submitEvent} removeEvent={this.removeEvent} idx={idx} habit={item.habit}/>
-
-                                    <li>
-                                        {item.frequency} times per week
-                                    </li>
-                                </ul>
-                                {/* <ReactModal isOpen= { this.state.isModalOpen }>
-                                    <HabitInfo isModalOpen={this.state.isModalOpen} habit={ item.habit } submitEvent={ this.submitEvent } closeModal={ this.closeModal } />
-                                </ReactModal> */}
+                            <div class="gridItem" key={idx} onClick={e => this.openModal(e) }>
+                            <h2 id={idx} >{item.habit}</h2>
+                            <ToggleButton removeEvent={this.removeEvent} submitEvent={this.submitEvent} removeEvent={this.removeEvent} idx={idx} habit={item.habit}/>
+                            <p>{item.frequency} times per week </p>
                             </ div>
                         )
                     })}
