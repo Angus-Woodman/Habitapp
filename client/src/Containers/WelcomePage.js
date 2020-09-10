@@ -14,8 +14,8 @@ class WelcomePage extends React.Component {
             <>
                 <h1>welcome to our habitapp</h1>
                 <p>How to use our app</p>
-                <Link to="/login">Login</Link>
-                <Link to="/register">Register</Link>
+                <Link id='linkLogin' to="/login">Login</Link>
+                <Link id='linkRegister' to="/register">Register</Link>
             </>
         )
     }

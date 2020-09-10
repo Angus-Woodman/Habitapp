@@ -6,7 +6,8 @@ import 'react-calendar/dist/Calendar.css';
 class HabitInfo extends React.Component {
     state = {
         date: new Date(),
-        isModalOpen: this.props.isModalOpen
+        isModalOpen: this.props.isModalOpen,
+        checked: false
     }
 
     // openModal = () => {
@@ -33,7 +34,14 @@ class HabitInfo extends React.Component {
     } 
     let eventDate = (y + "-" + m + "-" + d)
     console.log(y + "-" + m + "-" + d);
-    this.props.submitEvent(this.props.habit, eventDate) 
+    if(this.state.checked === false){
+        this.props.submitEvent(this.props.habit, eventDate)
+        this.setState({ checked: true }) 
+    } else {
+        this.props.removeEvent(this.props.habit, eventDate)
+        this.setState({ checked: false }) 
+    }
+    
   }
  
   render() {
