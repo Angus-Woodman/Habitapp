@@ -1,10 +1,9 @@
 #habitListContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  /* grid-template-rows: 1fr 1fr; */
   grid-gap: 10px;
   border: black solid 1px;
-  margin-top:5vh;
+  margin-top:10vh;
 }
 
 .gridItem {
@@ -12,7 +11,7 @@
   padding: 10px;
   border: rgba(255, 255, 255) 1px solid;
   text-align: center;
-  background-color: #03DAC5;
+  background-color: #028b7e;
   border-radius: 5%;
   /* WHAT ARE THESE */
   /* -webkit-transition: background-color 0.25s ease-out;
@@ -22,8 +21,27 @@
 }
 
 .gridItem:hover {
-  background-color: rgba(46, 240, 46, 0.8);
+  background-color: #03DAC5;
   border: green 1px solid;
+}
+
+#addHabitText {
+  margin-top: 5%;
+}
+
+.habbitListModal{
+  background-color: #121212;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  right: 50px;
+  bottom: 50px;
+  border: 1px solid rgb(204, 204, 204);
+  overflow: auto;
+  border-radius: 4px;
+  outline: none;
+  padding: 20px;
+  text-align: center;
 }
 
 @media screen and (max-width: 1450px) {

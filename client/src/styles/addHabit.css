@@ -1,0 +1,27 @@
+#addHabbitContainer{
+  width: 50%;
+  height: 50%;
+  margin: auto;
+  border: 1px solid white;
+  margin-top: 10%;
+}
+
+#adHabbitForm {
+  margin-top: 10%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+
+#adHabbitForm input {
+  width:30%;
+  margin:auto;
+  margin-bottom: 2%;
+}
+
+#adHabbitForm select {
+  width:5%;
+  margin:auto;
+  margin-bottom: 2%;
+}

@@ -64,7 +64,7 @@ class HabitList extends React.Component {
 
                     {this.props.habits.map((item, idx) => {
                         return (
-                            <div class="gridItem" key={idx} onClick={e => this.openModal(e) }>
+                            <div className="gridItem" key={idx} onClick={e => this.openModal(e) }>
                             <h2 id={idx} >{item.habit}</h2>
                             <ToggleButton removeEvent={this.removeEvent} submitEvent={this.submitEvent} removeEvent={this.removeEvent} idx={idx} habit={item.habit}/>
                             <p>{item.frequency} times per week </p>
@@ -72,7 +72,12 @@ class HabitList extends React.Component {
                         )
                     })}
 
-                    <ReactModal isOpen= { this.state.isModalOpen }>
+                    <div className="gridItem" onClick={ this.props.openAddHabitModal } >
+                    <h2 id='addHabitText'>Add habit</h2>
+                    <i className="fa fa-plus fa-3x" aria-hidden="true"></i>
+                    </div>
+
+                    <ReactModal className="ReactModal__Overlay ReactModal__Overlay--after-open ReactModal__Overlay--before-close habbitListModal" isOpen= { this.state.isModalOpen }>
                         <HabitInfo isModalOpen={this.state.isModalOpen} habit={ this.state.habit } submitEvent={ this.submitEvent } removeEvent={ this.removeEvent } closeModal={ this.closeModal } />
                     </ReactModal>
 

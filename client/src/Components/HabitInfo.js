@@ -39,12 +39,13 @@ class HabitInfo extends React.Component {
     return (
       <div id="habitInfoContainer">
             <Calendar
+            className='calendar'
             showWeekNumbers
             onChange={this.onChange}
             value={this.state.date}
             onClickDay = {this.onClickDay}
             />
-            <i onClick={ this.props.closeModal } class="far fa-window-close fa-3x modalExit"></i>
+            <i onClick={ this.props.closeModal } className="far fa-window-close fa-3x modalExit"></i>
       </div>
     );
   }
