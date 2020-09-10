@@ -29,8 +29,6 @@ router.get("/habits", authorize, async (req, res) => {
   }
 });
 
-
-
 // doesn't work with authorize maybe need to set correct id 
 router.post("/habits", async (req, res) => {
     try {
