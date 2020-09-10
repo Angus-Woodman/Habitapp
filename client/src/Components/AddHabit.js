@@ -1,6 +1,7 @@
 import React from 'react';
 import HabitList from './HabitList';
 import { toast } from 'react-toastify'
+import "../styles/addHabit.css"
 
 class AddHabitList extends React.Component {
 // set correct id from prop from fetch in dashboard container
@@ -56,10 +57,11 @@ class AddHabitList extends React.Component {
     render() {
         return (
             <>
-            <button onClick={ this.props.closeModal }>Close Modal</button>
+            <i onClick={ this.props.closeModal } class="far fa-window-close fa-3x modalExit"></i>
+            {/*<button onClick={ this.props.closeModal }>Close Modal</button>*/}
             <form onSubmit={ this.addHabit }>
                 <label htmlFor="habit">Enter your habit:</label>
-                <input id='habitInput' name='habit' type='text' required onChange={ this.handleInput } autoFocus></input>
+                <input id='habitInput' name='habit' type='text' maxLength='12' required onChange={ this.handleInput } autoFocus></input>
                 <label htmlFor="frequency">How many times per week?</label>
                 <select name="frequency" id="habitFrequency" required onChange={ this.handleInput }>
                     <option value={1}>1</option>

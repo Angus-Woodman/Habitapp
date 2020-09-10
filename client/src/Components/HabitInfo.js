@@ -2,6 +2,7 @@ import React from 'react';
 import Calendar from 'react-calendar';
 import ReactModal from 'react-modal';
 import 'react-calendar/dist/Calendar.css';
+import "../styles/HabitInfo.css"
 
 class HabitInfo extends React.Component {
     state = {
@@ -36,14 +37,14 @@ class HabitInfo extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id="habitInfoContainer">
             <Calendar
             showWeekNumbers
             onChange={this.onChange}
             value={this.state.date}
             onClickDay = {this.onClickDay}
             />
-            <button onClick={ this.props.closeModal }>Close</button>
+            <i onClick={ this.props.closeModal } class="far fa-window-close fa-3x modalExit"></i>
       </div>
     );
   }

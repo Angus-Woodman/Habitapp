@@ -1,8 +1,10 @@
 #habitListContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  /* grid-template-rows: 1fr 1fr; */
   grid-gap: 10px;
   border: black solid 1px;
+  margin-top:5vh;
 }
 
 .gridItem {
@@ -10,8 +12,8 @@
   padding: 10px;
   border: rgba(255, 255, 255) 1px solid;
   text-align: center;
-  background-color: lightgreen;
-  border-radius: 5px;
+  background-color: #03DAC5;
+  border-radius: 5%;
   /* WHAT ARE THESE */
   /* -webkit-transition: background-color 0.25s ease-out;
   -moz-transition: background-color 0.25s ease-out;

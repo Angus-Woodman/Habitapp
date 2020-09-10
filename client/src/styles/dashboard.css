@@ -7,6 +7,23 @@
   text-align: center;
   width: 100%;
   margin: auto;
+  font-size: 300%;
+  color: white;
+}
+
+/* Not working */
+button {
+  background-color: #03DAC5;
+  color: #121212;
+}
+
+.modalExit {
+  background-color: #03DAC5;
+  color: #121212;
+  margin:10px;
+  position: absolute;
+  top: 0;
+  right:0;
 }
 
 #logoutButton {
@@ -21,4 +38,9 @@
   position: absolute;
   top: 0;
   left:0;
+
+  /*  This doesn't work as grid is in the habitListContainer
+  (trying to put the add habit button at the end of the grid)
+  grid-column: -2;
+  grid-row: -2; */
 }
