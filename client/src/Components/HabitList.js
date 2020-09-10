@@ -5,7 +5,10 @@ import HabitInfo from './HabitInfo';
 ReactModal.setAppElement("#root");
 
 class HabitList extends React.Component {
-    state = { isModalOpen: false }
+    state = { 
+        isModalOpen: false,
+        habit: ""
+    }
 
     // componentDidMount() {
     //     for(let i=0; i < this.props.habits.length; i++){
@@ -22,8 +25,12 @@ class HabitList extends React.Component {
     //     this.setState({ isModalOpen: [...this.state.isModalOpen, ...array] })
     // }
 
-    openModal = () => {
+    openModal = (e) => {
+        console.log(e.target.id)
+        console.log(this.props.habits[e.target.id].habit)
         this.setState({ isModalOpen: true })
+        this.setState({ habit: this.props.habits[e.target.id].habit})
+        
     }
 
     closeModal = () => {
@@ -80,7 +87,7 @@ class HabitList extends React.Component {
                             <div key={idx}>
                                 <ul >
                                     <li>
-                                        <button onClick={ this.openModal }>{item.habit}</button>
+                                        <button id={idx} onClick={e => this.openModal(e) }>{item.habit}</button>
                                     </li>
 
                                     <ToggleButton removeEvent={this.removeEvent} submitEvent={this.submitEvent} idx={idx} habit={item.habit}/> 
@@ -89,13 +96,17 @@ class HabitList extends React.Component {
                                         {item.frequency} times per week
                                     </li>
                                 </ul>
-                                <ReactModal isOpen= { this.state.isModalOpen }>
+                                {/* <ReactModal isOpen= { this.state.isModalOpen }>
                                     <HabitInfo isModalOpen={this.state.isModalOpen} habit={ item.habit } submitEvent={ this.submitEvent } closeModal={ this.closeModal } />
-                                </ReactModal>
+                                </ReactModal> */}
                             </ div>
                         )
                     })}
-                    
+
+                    <ReactModal isOpen= { this.state.isModalOpen }> 
+                        <HabitInfo isModalOpen={this.state.isModalOpen} habit={ this.state.habit } submitEvent={ this.submitEvent } closeModal={ this.closeModal } />
+                    </ReactModal>
+                                
                 </div>
             </>
         )

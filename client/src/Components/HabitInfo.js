@@ -39,6 +39,7 @@ class HabitInfo extends React.Component {
   render() {
     return (
       <div>
+        
         {/* <ReactModal isOpen= { this.state.isModalOpen }> */}
             <Calendar
             showWeekNumbers
