@@ -1,8 +1,42 @@
-import React from 'react'
-import ToggleButton from "./ToggleButton"
+import React from 'react';
+import ToggleButton from "./ToggleButton";
+import ReactModal from 'react-modal';
+import HabitInfo from './HabitInfo';
+ReactModal.setAppElement("#root");
 
 class HabitList extends React.Component {
+    state = { 
+        isModalOpen: false,
+        habit: ""
+    }
 
+    // componentDidMount() {
+    //     for(let i=0; i < this.props.habits.length; i++){
+    //         [{}, {}, {}]
+    //     }
+    // }
+
+    // componentDidMount() {
+    //     const array;
+
+    //     for(let i=0; i < this.props.habits.length; i++){
+    //         array = [...array, false];
+    //     }
+    //     this.setState({ isModalOpen: [...this.state.isModalOpen, ...array] })
+    // }
+
+    openModal = (e) => {
+        console.log(e.target.id)
+        console.log(this.props.habits[e.target.id].habit)
+        this.setState({ isModalOpen: true })
+        this.setState({ habit: this.props.habits[e.target.id].habit})
+        
+    }
+
+    closeModal = () => {
+        this.setState({ isModalOpen: false })
+    }
+    
     handleCheckbox = (e) => {
         this.setState({ checked: e.target.checked })
         console.log(this.state.checked)
@@ -50,22 +84,33 @@ class HabitList extends React.Component {
 
                     {this.props.habits.map((item, idx) => {
                         return (
-                            <ul key={idx}>
-                                <li>
-                                    {item.habit}
-                                </li>
+                            <div key={idx}>
+                                <ul >
+                                    <li>
+                                        <button id={idx} onClick={e => this.openModal(e) }>{item.habit}</button>
+                                    </li>
 
-                                <ToggleButton removeEvent={this.removeEvent} submitEvent={this.submitEvent} idx={idx} habit={item.habit}/> 
+                                    <ToggleButton removeEvent={this.removeEvent} submitEvent={this.submitEvent} idx={idx} habit={item.habit}/> 
 
-                                <li>
-                                    {item.frequency} times per week
-                                </li>
-                            </ul>
+                                    <li>
+                                        {item.frequency} times per week
+                                    </li>
+                                </ul>
+                                {/* <ReactModal isOpen= { this.state.isModalOpen }>
+                                    <HabitInfo isModalOpen={this.state.isModalOpen} habit={ item.habit } submitEvent={ this.submitEvent } closeModal={ this.closeModal } />
+                                </ReactModal> */}
+                            </ div>
                         )
                     })}
+
+                    <ReactModal isOpen= { this.state.isModalOpen }> 
+                        <HabitInfo isModalOpen={this.state.isModalOpen} habit={ this.state.habit } submitEvent={ this.submitEvent } closeModal={ this.closeModal } />
+                    </ReactModal>
+                                
                 </div>
             </>
         )
     }
 }
+
 export default HabitList
