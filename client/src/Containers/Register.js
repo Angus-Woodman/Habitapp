@@ -19,9 +19,6 @@ const Register = ({setAuth}) => {
 
     const onSubmitForm = async e => {
     e.preventDefault();
-    console.log(email)
-    console.log(password)
-    console.log(name)
     try {
       const body = { email, password, name };
       const response = await fetch(
@@ -73,7 +70,7 @@ const passwordsMatch = () => {
           onChange={e => onChange(e)}
           className="form-control my-3"
         />
-       
+
         <input
           type="password"
           name="password"
@@ -82,7 +79,7 @@ const passwordsMatch = () => {
           onChange={e => onChange(e)}
           className="form-control my-3"
         />
-        <input 
+        <input
         type='password'
         name='passwordCopy'
         value={passwordCopy}
@@ -103,7 +100,7 @@ const passwordsMatch = () => {
         <div className={numberCheck() ? 'green' : 'red'}>Password must contain a number</div>
         <div className={passwordsMatch() ? 'green' : 'red'}>Passwords must match</div>
       </form>
-      
+
       <Link to="/login">Login</Link>
     </Fragment>
   );

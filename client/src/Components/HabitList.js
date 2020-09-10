@@ -5,45 +5,26 @@ import HabitInfo from './HabitInfo';
 ReactModal.setAppElement("#root");
 
 class HabitList extends React.Component {
-    state = { 
+    state = {
         isModalOpen: false,
         habit: ""
     }
 
-    // componentDidMount() {
-    //     for(let i=0; i < this.props.habits.length; i++){
-    //         [{}, {}, {}]
-    //     }
-    // }
-
-    // componentDidMount() {
-    //     const array;
-
-    //     for(let i=0; i < this.props.habits.length; i++){
-    //         array = [...array, false];
-    //     }
-    //     this.setState({ isModalOpen: [...this.state.isModalOpen, ...array] })
-    // }
-
     openModal = (e) => {
-        // console.log(e.target.id)
-        // console.log(this.props.habits[e.target.id].habit)
         this.setState({ isModalOpen: true })
         this.setState({ habit: this.props.habits[e.target.id].habit})
-        
+
     }
 
     closeModal = () => {
         this.setState({ isModalOpen: false })
     }
-    
+
     handleCheckbox = (e) => {
         this.setState({ checked: e.target.checked })
-        console.log(this.state.checked)
     }
-    
+
     submitEvent = (habit, eventDate) => {
-        console.log(this.props.habits)
         const newEvent = {
             id: this.props.habits[0].user_id,
             habit: habit,
@@ -55,10 +36,9 @@ class HabitList extends React.Component {
             headers: { 'Content-Type' : 'application/json' }
         }
         fetch(`http://localhost:5000/dashboard/events`, options)
-        .then(console.log(newEvent))
         .catch(console.warn)
     }
-    
+
     removeEvent = (habit, eventDate) => {
         const deleteEvent = {
             id: this.props.habits[0].user_id,
@@ -71,10 +51,9 @@ class HabitList extends React.Component {
             headers: { 'Content-Type' : 'application/json' }
         }
         fetch(`http://localhost:5000/dashboard/events`, options)
-        .then(console.log(deleteEvent))
         .catch(console.warn)
     }
-    
+
     render() {
 
         return (
@@ -90,7 +69,7 @@ class HabitList extends React.Component {
                                         <button id={idx} onClick={e => this.openModal(e) }>{item.habit}</button>
                                     </li>
 
-                                    <ToggleButton removeEvent={this.removeEvent} submitEvent={this.submitEvent} removeEvent={this.removeEvent} idx={idx} habit={item.habit}/> 
+                                    <ToggleButton removeEvent={this.removeEvent} submitEvent={this.submitEvent} removeEvent={this.removeEvent} idx={idx} habit={item.habit}/>
 
                                     <li>
                                         {item.frequency} times per week
@@ -103,10 +82,10 @@ class HabitList extends React.Component {
                         )
                     })}
 
-                    <ReactModal isOpen= { this.state.isModalOpen }> 
+                    <ReactModal isOpen= { this.state.isModalOpen }>
                         <HabitInfo isModalOpen={this.state.isModalOpen} habit={ this.state.habit } submitEvent={ this.submitEvent } removeEvent={ this.removeEvent } closeModal={ this.closeModal } />
                     </ReactModal>
-                                
+
                 </div>
             </>
         )

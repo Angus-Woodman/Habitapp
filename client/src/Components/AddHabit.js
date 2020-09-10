@@ -7,7 +7,7 @@ class AddHabitList extends React.Component {
     state = {
         id: this.props.user_id,
         habit: '',
-        frequency: 1,
+        frequency: '1',
         exists: false
     }
 
@@ -16,23 +16,20 @@ class AddHabitList extends React.Component {
         this.setState({ [name]: value });
     };
 
-    
+
     addHabit = async e => {
       let habitExists = false
         e.preventDefault();
         for (let i = 0; i < this.props.habits.length; i++) {
           if (this.state.habit === this.props.habits[i].habit) {
             habitExists = true
-            
-            toast.error('Habit already exists');
-            } 
-        }
-        console.log(habitExists)
 
-        
+            toast.error('Habit already exists');
+            }
+        }
+
         try {
           if (habitExists === false) {
-            console.log(habitExists)
           const body = {
             id: this.state.id,
             habit: this.state.habit,
@@ -51,7 +48,6 @@ class AddHabitList extends React.Component {
         }} catch (err) {
           console.error(err.message);
         }
-        console.log('hello world') 
         this.setState({habit: "", frequency: ""})
         this.props.closeModal()
         // window.location.reload(true)

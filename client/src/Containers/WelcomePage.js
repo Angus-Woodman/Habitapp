@@ -3,12 +3,6 @@ import { Link } from "react-router-dom"
 
 class WelcomePage extends React.Component {
 
-// Display number of users
-  // componentDidMount = () => {
-  //       fetch('http://localhost:3000/users')
-  //       .then(data => console.log(data.length))
-  //   }
-
     render() {
         return (
             <>

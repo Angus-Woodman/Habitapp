@@ -21,7 +21,6 @@ const Dashboard = ({setAuth}) => {
             });
 
             const parseRes = await res.json();
-            console.log(parseRes);
             setHabits(parseRes);
             if(parseRes.length !== 0) {
                 setName(parseRes[0].user_name);
@@ -36,7 +35,7 @@ const Dashboard = ({setAuth}) => {
                 setUserId(parseRes.user_id)
             }
 
-            
+
 
         } catch (err) {
             console.error(err.message);
@@ -67,8 +66,6 @@ const Dashboard = ({setAuth}) => {
         getName();
     }, []);
 
-    console.log(habits);
-
     return (
         <Fragment>
             <h1> Hello {name}!!!!! </h1>
@@ -83,7 +80,7 @@ const Dashboard = ({setAuth}) => {
             </button>
 
             <HabitList habits={habits}/>
-            
+
         </Fragment>
     );
 };
