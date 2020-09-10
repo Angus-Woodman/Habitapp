@@ -2,6 +2,19 @@ const router = require("express").Router();
 const authorize = require("../middleware/authorize");
 const pool = require("../db/db");
 
+router.get("/", authorize, async (req, res) => {
+  try {
+    const user = await pool.query(
+      "SELECT user_name, user_id FROM users WHERE user_id = $1",
+      [req.user]
+    );
+    res.json(user.rows[0]);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server error");
+  }
+});
+
 router.get("/habits", authorize, async (req, res) => {
   try {
     const user = await pool.query(
@@ -16,18 +29,7 @@ router.get("/habits", authorize, async (req, res) => {
   }
 });
 
-router.get("/", authorize, async (req, res) => {
-    try {
-      const user = await pool.query(
-        "SELECT user_name, user_id FROM users WHERE user_id = $1",
-        [req.user]
-      );
-      res.json(user.rows[0]);
-    } catch (err) {
-      console.error(err.message);
-      res.status(500).send("Server error");
-    }
-});
+
 
 // doesn't work with authorize maybe need to set correct id 
 router.post("/habits", async (req, res) => {
@@ -45,6 +47,28 @@ router.post("/habits", async (req, res) => {
     }
 });
 
+router.post('/events', async (req, res) => {
+  try {
+    const { id, habit, date} = req.body;
+    const user = await pool.query(
+      'INSERT INTO events (user_id, habit, habitDate) VALUES ($1, $2, $3)', [id, habit, date]
+    )
+  } catch (err) {
+    console.error(err.message)
+    res.status(500).send("Server error")
+  }
+})
 
+router.delete('/events', async (req, res) => {
+  try {
+    const { id, habit, date } = req.body
+    const user = await pool.query(
+      'DELETE FROM events WHERE user_id = $1 AND habit = $2 AND habitDate = $3', [id, habit, date]
+    )
+  } catch (err) {
+    console.error(err.message)
+    res.status(500).send("Server error")
+  }
+})
 
 module.exports = router;
