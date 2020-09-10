@@ -11,8 +11,8 @@ class HabitList extends React.Component {
     }
 
     openModal = (e) => {
-        console.log(e.target.id)
-        console.log(this.props.habits[e.target.id].habit)
+        // console.log(e.target.id)
+        // console.log(this.props.habits[e.target.id].habit)
         this.setState({ isModalOpen: true })
         this.setState({ habit: this.props.habits[e.target.id].habit})
         
@@ -75,7 +75,7 @@ class HabitList extends React.Component {
                                         <button id={idx} onClick={e => this.openModal(e) }>{item.habit}</button>
                                     </li>
 
-                                    <ToggleButton removeEvent={this.removeEvent} submitEvent={this.submitEvent} idx={idx} habit={item.habit}/> 
+                                    <ToggleButton removeEvent={this.removeEvent} submitEvent={this.submitEvent} removeEvent={this.removeEvent} idx={idx} habit={item.habit}/> 
 
                                     <li>
                                         {item.frequency} times per week
@@ -86,7 +86,7 @@ class HabitList extends React.Component {
                     })}
 
                     <ReactModal isOpen= { this.state.isModalOpen }> 
-                        <HabitInfo isModalOpen={this.state.isModalOpen} habit={ this.state.habit } submitEvent={ this.submitEvent } closeModal={ this.closeModal } />
+                        <HabitInfo isModalOpen={this.state.isModalOpen} habit={ this.state.habit } submitEvent={ this.submitEvent } removeEvent={ this.removeEvent } closeModal={ this.closeModal } />
                     </ReactModal>
                                 
                 </div>
