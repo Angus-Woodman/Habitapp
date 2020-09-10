@@ -67,18 +67,18 @@ const Dashboard = ({setAuth}) => {
         getName();
     }, []);
 
-    console.log(habits);
+    // console.log(habits);
 
     return (
         <Fragment>
             <h1> Hello {name}!!!!! </h1>
 
-            <button onClick={ openModal }>Add habit</button>
+            <button id="addHabit" onClick={ openModal }>Add habit</button>
             <ReactModal isOpen={ isModalOpen }>
                 <AddHabit habits={habits} user_id={ user_id } closeModal = { closeModal } />
             </ReactModal>
 
-            <button onClick={e => logout(e)} className="btn btn-primary">
+            <button id="logout" onClick={e => logout(e)} className="btn btn-primary">
                 Logout
             </button>
 
