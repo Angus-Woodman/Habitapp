@@ -26,8 +26,8 @@ class HabitList extends React.Component {
     // }
 
     openModal = (e) => {
-        console.log(e.target.id)
-        console.log(this.props.habits[e.target.id].habit)
+        // console.log(e.target.id)
+        // console.log(this.props.habits[e.target.id].habit)
         this.setState({ isModalOpen: true })
         this.setState({ habit: this.props.habits[e.target.id].habit})
         
