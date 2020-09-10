@@ -10,21 +10,6 @@ class HabitList extends React.Component {
         habit: ""
     }
 
-    // componentDidMount() {
-    //     for(let i=0; i < this.props.habits.length; i++){
-    //         [{}, {}, {}]
-    //     }
-    // }
-
-    // componentDidMount() {
-    //     const array;
-
-    //     for(let i=0; i < this.props.habits.length; i++){
-    //         array = [...array, false];
-    //     }
-    //     this.setState({ isModalOpen: [...this.state.isModalOpen, ...array] })
-    // }
-
     openModal = (e) => {
         console.log(e.target.id)
         console.log(this.props.habits[e.target.id].habit)
@@ -96,9 +81,6 @@ class HabitList extends React.Component {
                                         {item.frequency} times per week
                                     </li>
                                 </ul>
-                                {/* <ReactModal isOpen= { this.state.isModalOpen }>
-                                    <HabitInfo isModalOpen={this.state.isModalOpen} habit={ item.habit } submitEvent={ this.submitEvent } closeModal={ this.closeModal } />
-                                </ReactModal> */}
                             </ div>
                         )
                     })}
