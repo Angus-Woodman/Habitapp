@@ -1,6 +1,6 @@
 import React from 'react';
 import Calendar from 'react-calendar';
-import ReactModal from 'react-modal';
+// import ReactModal from 'react-modal';
 import 'react-calendar/dist/Calendar.css';
  
 class HabitInfo extends React.Component {
@@ -40,7 +40,6 @@ class HabitInfo extends React.Component {
       <div>
         
             <Calendar
-            showWeekNumbers
             onChange={this.onChange}
             value={this.state.date}
             onClickDay = {this.onClickDay}
