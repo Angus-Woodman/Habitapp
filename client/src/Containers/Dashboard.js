@@ -75,7 +75,7 @@ const Dashboard = ({setAuth}) => {
 
             <button onClick={ openModal }>Add habit</button>
             <ReactModal isOpen={ isModalOpen }>
-                <AddHabit user_id={ user_id } closeModal = { closeModal } />
+                <AddHabit habits={habits} user_id={ user_id } closeModal = { closeModal } />
             </ReactModal>
 
             <button onClick={e => logout(e)} className="btn btn-primary">
