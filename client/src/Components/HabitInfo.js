@@ -10,15 +10,6 @@ class HabitInfo extends React.Component {
         checked: false
     }
 
-    // openModal = () => {
-    //     this.setState({ isModalOpen: true })
-    // }
-
-    // closeModal = () => {
-    //     this.setState({ isModalOpen: false })
-    // }
-
-
   onChange = date => this.setState({ date })
 
   onClickDay = (value) => {
@@ -46,8 +37,6 @@ class HabitInfo extends React.Component {
   render() {
     return (
       <div>
-
-        {/* <ReactModal isOpen= { this.state.isModalOpen }> */}
             <Calendar
             showWeekNumbers
             onChange={this.onChange}
@@ -55,7 +44,6 @@ class HabitInfo extends React.Component {
             onClickDay = {this.onClickDay}
             />
             <button onClick={ this.props.closeModal }>Close</button>
-        {/* </ReactModal> */}
       </div>
     );
   }
