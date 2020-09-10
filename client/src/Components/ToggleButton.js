@@ -10,7 +10,7 @@ class ToggleButton extends React.Component {
         this.setState(prevState => ({ checked: !prevState.checked }))
         const d = new Date()
         const day = d.getDate()
-        const month = d.getMonth()
+        const month = d.getMonth()+1
         const year = d.getFullYear()
         const dateNow = `${year}/${month}/${day}`
         console.log(dateNow)
