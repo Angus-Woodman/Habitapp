@@ -99,7 +99,7 @@ const passwordsMatch = () => {
           className="form-control my-3"
         />
         <button disabled={inputs.password.length > 7 && numberCheck() && passwordsMatch() ? false : true}className="btn btn-success btn-block">Submit</button>
-        <div className={inputs.password.length > 7 ? 'green' : 'red'}>Password must contain at least 7 characters</div>
+        <div className={inputs.password.length > 7 ? 'green' : 'red'}>Password must contain at least 8 characters</div>
         <div className={numberCheck() ? 'green' : 'red'}>Password must contain a number</div>
         <div className={passwordsMatch() ? 'green' : 'red'}>Passwords must match</div>
       </form>
