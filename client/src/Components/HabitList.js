@@ -2,7 +2,7 @@ import React from 'react';
 import ToggleButton from "./ToggleButton";
 import ReactModal from 'react-modal';
 import HabitInfo from './HabitInfo';
-ReactModal.setAppElement("#root");
+if (process.env.NODE_ENV !== "test") ReactModal.setAppElement("#root");
 
 class HabitList extends React.Component {
     state = { 

@@ -19,9 +19,6 @@ const Register = ({setAuth}) => {
 
     const onSubmitForm = async e => {
     e.preventDefault();
-    console.log(email)
-    console.log(password)
-    console.log(name)
     try {
       const body = { email, password, name };
       const response = await fetch(

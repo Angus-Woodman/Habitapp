@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import HabitList from "../Components/HabitList";
 import ReactModal from 'react-modal';
 import AddHabit from '../Components/AddHabit';
-ReactModal.setAppElement("#root");
+if (process.env.NODE_ENV !== "test") ReactModal.setAppElement("#root");
 
 
 const Dashboard = ({setAuth}) => {

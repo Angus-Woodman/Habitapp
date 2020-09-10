@@ -6,7 +6,9 @@ describe("App", () => {
     component = shallow(<App />);
   });
 
-  test("Check h1 text content", () => {
-    expect(component.find("h1").text()).toBe("New React App");
-  });
-});
+  test('it renders', () => {
+    expect(component.find('.container')).toHaveLength(1);
+  })
+})
+
+
