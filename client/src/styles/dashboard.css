@@ -1,0 +1,49 @@
+#dashboardContainer {
+  margin-top: 10vh;
+  height: 50vh;
+}
+
+#dashboardHeading {
+  text-align: center;
+  width: 100%;
+  margin: auto;
+  font-size: 300%;
+  color: white;
+}
+
+.addHabbitModal{
+  background-color: #121212;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  right: 50px;
+  bottom: 50px;
+  border: 1px solid rgb(204, 204, 204);
+  overflow: auto;
+  border-radius: 4px;
+  outline: none;
+  padding: 20px;
+  text-align: center;
+}
+
+.modalExit {
+  background-color: #03DAC5;
+  color: #121212;
+  margin:10px;
+  position: absolute;
+  top: 0;
+  right:0;
+}
+
+#logoutButton {
+  margin:10px;
+  position: absolute;
+  top: 0;
+  right:0;
+}
+
+
+  /*  This doesn't work as grid is in the habitListContainer
+  (trying to put the add habit button at the end of the grid)
+  grid-column: -2;
+  grid-row: -2; */

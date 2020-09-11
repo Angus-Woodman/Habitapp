@@ -1,0 +1,13 @@
+
+#habitInfoContainer{
+  /* width:70%;
+  margin: auto; */
+  height:100%;
+  /* border: white 1px solid; */
+}
+
+.calendar{
+  width:70%;
+  height:70%;
+  margin: auto;
+}

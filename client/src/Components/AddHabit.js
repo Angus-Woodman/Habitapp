@@ -1,13 +1,14 @@
 import React from 'react';
 import HabitList from './HabitList';
 import { toast } from 'react-toastify'
+import "../styles/addHabit.css"
 
 class AddHabitList extends React.Component {
 // set correct id from prop from fetch in dashboard container
     state = {
         id: this.props.user_id,
         habit: '',
-        frequency: 1,
+        frequency: '1',
         exists: false
     }
 
@@ -16,23 +17,20 @@ class AddHabitList extends React.Component {
         this.setState({ [name]: value });
     };
 
-    
+
     addHabit = async e => {
       let habitExists = false
         e.preventDefault();
         for (let i = 0; i < this.props.habits.length; i++) {
           if (this.state.habit === this.props.habits[i].habit) {
             habitExists = true
-            
-            toast.error('Habit already exists');
-            } 
-        }
-        console.log(habitExists)
 
-        
+            toast.error('Habit already exists');
+            }
+        }
+
         try {
           if (habitExists === false) {
-            console.log(habitExists)
           const body = {
             id: this.state.id,
             habit: this.state.habit,
@@ -51,7 +49,6 @@ class AddHabitList extends React.Component {
         }} catch (err) {
           console.error(err.message);
         }
-        console.log('hello world') 
         this.setState({habit: "", frequency: ""})
         this.props.closeModal()
         // window.location.reload(true)
@@ -60,10 +57,12 @@ class AddHabitList extends React.Component {
     render() {
         return (
             <>
-            <button onClick={ this.props.closeModal }>Close Modal</button>
-            <form onSubmit={ this.addHabit }>
+            <i onClick={ this.props.closeModal } class="far fa-window-close fa-3x modalExit"></i>
+            {/*<button onClick={ this.props.closeModal }>Close Modal</button>*/}
+            <div id="addHabbitContainer">
+            <form id='adHabbitForm' onSubmit={ this.addHabit }>
                 <label htmlFor="habit">Enter your habit:</label>
-                <input id='habitInput' name='habit' type='text' required onChange={ this.handleInput } autoFocus></input>
+                <input id='habitInput' name='habit' type='text' maxLength='12' required onChange={ this.handleInput } autoFocus></input>
                 <label htmlFor="frequency">How many times per week?</label>
                 <select name="frequency" id="habitFrequency" required onChange={ this.handleInput }>
                     <option value={1}>1</option>
@@ -76,6 +75,7 @@ class AddHabitList extends React.Component {
                 </select>
                 <input type='submit'></input>
             </form>
+            </div>
             </>
         )
     }
