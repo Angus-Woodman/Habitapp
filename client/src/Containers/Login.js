@@ -47,12 +47,13 @@ const { email, password } = inputs;
   };
 
   return (
-    <div id='page'>
+    <>
+    <br />
     <Link to='/' style={{ textDecoration: 'none' }}>
-      <h1 class='headerLogo'>Habitapp</h1>
+      <h1 className='headerLogo'>Habitapp</h1>
     </Link>
-    <hr />
-    <form onSubmit ={onSubmitForm}>
+    <hr id="loginHr" />
+    <form id='loginPageForm' onSubmit ={onSubmitForm}>
     <label htmlFor="email">Email</label>
         <input
           id = 'email'
@@ -73,10 +74,10 @@ const { email, password } = inputs;
           placeholder="Type your password"
           onChange={e => onChange(e)}
         />
-        <button class='submitButtons'>Login</button>
+        <button className='submitButtons'>Login</button>
       </form>
-      <Link to="/register">Not registered?</Link>
-    </div>
+      <Link to="/register">Not registered? Sign up here</Link>
+    </>
   );
 };
 

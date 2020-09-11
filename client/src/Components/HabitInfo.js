@@ -1,6 +1,5 @@
 import React from 'react';
 import Calendar from 'react-calendar';
-// import ReactModal from 'react-modal';
 import 'react-calendar/dist/Calendar.css';
  
 class HabitInfo extends React.Component {

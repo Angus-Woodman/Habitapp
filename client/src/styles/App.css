@@ -10,15 +10,13 @@
   --lightgrey: #808080;
 }
 
-body {
-  font-family: "Poppins", sans-serif;
+#root {
+  height: 100vh;
+  background-color: var(--backgroundBlack);
 }
 
-.green {
-  color: green;
-}
-.red {
-  color: red;
+body {
+  font-family: "Poppins", sans-serif;
 }
 
 h1 { font-family: 'Questrial', sans-serif; }
@@ -28,11 +26,36 @@ input:focus, button:focus {
   border: white solid 1px;
 }
 
-a {
-  color: var(--desatTurq)
+a { color: var(--desatTurq); }
+
+a:hover { color: var(--desatTurq); }
+
+a:focus {
+  outline: none;
+  text-decoration: underline;
 }
-a:hover {
-   color: var(--desatTurq)
+
+input {
+  display: block;
+  background-color: var(--grey);
+  border: none;
+  font-size: 16px;
+  height: 35px;
+  margin-bottom: 20px;
+  padding: 10px 10px;
+  color: white;
+  border-radius: 2px;
+}
+
+label {
+  font-size: 27px;
+  color: var(--lightgrey);
+}
+
+br {
+  display: block;
+  content: "";
+  padding-top: 5px;
 }
 
 .headerLogo {
@@ -62,14 +85,14 @@ a:hover {
 
 .homepageButtons:hover {
   background-color: var(--desatTurq);
-  color: #ffffff;
+  color: white;
 }
 
 .submitButtons {
   font-family: 'Poppins', sans-serif;
   padding: 8px 15px;
   background-color: var(--desatTurq);
-  color: #ffffff;
+  color: white;
   border: 1px solid var(--desatTurq);
   margin: 30px 4px;
   font-size: 100%;

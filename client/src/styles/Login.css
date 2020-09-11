@@ -1,18 +1,13 @@
-#root {
-    height: 100vh;
-}
-
-#page {
-    padding-top: 10px;
-}
+#page { padding-top: 10px; }
 
 hr {
-    color: white;
     border: 1px solid var(--grey);
     width: 90%;
     margin-top: 15px;
     margin-bottom: 40px;
 }
+
+#registerLine { width: 20%; }
 
 .secondHeaders {
     margin-top: 25px;
@@ -20,20 +15,4 @@ hr {
     font-size: 25px;
 }
 
-input {
-    display: block;
-    background-color: var(--grey);
-    border: none;
-    font-size: 16px;
-    height: 35px;
-    margin-bottom: 20px;
-    padding: 10px 10px;
-    color: white;
-    border-radius: 2px;
-    width: 30%;
-}
-
-label {
-    font-size: 27px;
-    color: var(--lightgrey);
-}
+#loginPageForm input { width: 30% }

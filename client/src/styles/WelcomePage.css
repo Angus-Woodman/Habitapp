@@ -1,12 +1,4 @@
-#root {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    background-color: var(--backgroundBlack);
-}
-
-section {
+#welcomePage {
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -18,7 +10,7 @@ section {
     font-family: 'Questrial', sans-serif;
     font-size: 750%;
     color: var(--saturatedTurq);
-    transition: color 1.5s;
+    transition: color 1s ease;
 }
 
 #homepageLogo:hover {
