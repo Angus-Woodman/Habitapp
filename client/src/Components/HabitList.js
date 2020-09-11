@@ -65,7 +65,7 @@ class HabitList extends React.Component {
                     {this.props.habits.map((item, idx) => {
                         return (
                             <div className="gridItem" key={idx} onClick={e => this.openModal(e) }>
-                            <h2 id={idx} >{item.habit}</h2>
+                            <h2>{item.habit}</h2>
                             <ToggleButton removeEvent={this.removeEvent} submitEvent={this.submitEvent} removeEvent={this.removeEvent} idx={idx} habit={item.habit}/>
                             <p>{item.frequency} times per week </p>
                             </ div>

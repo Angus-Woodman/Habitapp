@@ -42,7 +42,11 @@ function App() {
       <Fragment>
         <div className="container">
           <Switch>
-            <Route exact path='/' component={WelcomePage} />
+            <Route
+            exact
+            path='/'
+            render={props =>  !isAuthenticated ? (<WelcomePage/>) : (<Redirect to="/dashboard"/>)}
+            />
             <Route
               exact
               path="/login"
