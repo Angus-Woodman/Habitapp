@@ -1,27 +1,17 @@
-#addHabbitContainer{
-  width: 50%;
-  height: 50%;
-  margin: auto;
-  border: 1px solid white;
-  margin-top: 10%;
+.habitLabels {
+  margin: 20px 0px;
 }
-
-#adHabbitForm {
-  margin-top: 10%;
-  color: white;
-  display: flex;
-  flex-direction: column;
+#habitInput {
+  border: solid 1px var(--lightgrey);
 }
-
-
-#adHabbitForm input {
-  width:30%;
-  margin:auto;
-  margin-bottom: 2%;
+#habitInput:focus { border: solid 1px white; }
+select {
+  display: block;
+  background-color: var(--grey);
+  color: var(--lightgrey);
+  width: 5%;
+  height: 30%;
+  border-radius: 3px;
 }
-
-#adHabbitForm select {
-  width:5%;
-  margin:auto;
-  margin-bottom: 2%;
-}
+select:hover { cursor: pointer; }
+i:hover { cursor: pointer; }
