@@ -28,7 +28,19 @@ router.get("/habits", authorize, async (req, res) => {
   }
 });
 
-// doesn't work with authorize maybe need to set correct id
+// router.get("/events", authorize, async (req, res) => {
+//   try {
+//     const user = await pool.query(
+//         'SELECT * FROM events WHERE habit = $1',
+//         [req.user]
+//     );
+//     res.json(user.rows);
+//   } catch (err) {
+//     console.error(err.message);
+//     res.status(500).send("Server error");
+//   }
+// });
+
 router.post("/habits", async (req, res) => {
     try {
       const { id, habit, frequency } = req.body;

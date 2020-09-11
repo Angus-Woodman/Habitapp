@@ -12,6 +12,7 @@ class HabitList extends React.Component {
     }
 
     openModal = (e) => {
+      console.log(e.target)
         this.setState({ isModalOpen: true })
         this.setState({ habit: this.props.habits[e.target.id].habit})
 
@@ -26,12 +27,22 @@ class HabitList extends React.Component {
     }
 
     submitEvent = (habit, eventDate) => {
+
+      // const options1 = {
+      //     method: 'GET',
+      //     body: habit,
+      //     headers: { 'Content-Type' : 'application/json' }
+      // }
+      // fetch(`http://localhost:5000/dashboard/events`, options1)
+      //   .then(console.log)
+      // .catch(console.warn)
+
         const newEvent = {
             id: this.props.habits[0].user_id,
             habit: habit,
             date: eventDate
         }
-        console.log(newEvent)
+        // console.log(newEvent)
         const options = {
             method: 'POST',
             body: JSON.stringify(newEvent),
@@ -68,7 +79,7 @@ class HabitList extends React.Component {
                         return (
                           <div className="gridItem" key={idx}>
                             <div onClick={e => this.openModal(e) }>
-                            <h2>{item.habit}</h2>
+                            <h2 id={idx}>{item.habit}</h2>
                             <p>{item.frequency} times per week </p>
                             </ div>
                             <div>

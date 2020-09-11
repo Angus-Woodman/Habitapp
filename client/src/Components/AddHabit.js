@@ -57,7 +57,7 @@ class AddHabitList extends React.Component {
     render() {
         return (
             <>
-            <i onClick={ this.props.closeModal } class="far fa-window-close fa-3x modalExit"></i>
+            <i onClick={ this.props.closeModal } className="far fa-window-close fa-3x modalExit"></i>
             {/*<button onClick={ this.props.closeModal }>Close Modal</button>*/}
             <div id="addHabbitContainer">
             <form id='adHabbitForm' onSubmit={ this.addHabit }>
