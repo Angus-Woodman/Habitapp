@@ -28,18 +28,17 @@ router.get("/habits", authorize, async (req, res) => {
   }
 });
 
-// router.get("/events", authorize, async (req, res) => {
-//   try {
-//     const user = await pool.query(
-//         'SELECT * FROM events WHERE habit = $1',
-//         [req.user]
-//     );
-//     res.json(user.rows);
-//   } catch (err) {
-//     console.error(err.message);
-//     res.status(500).send("Server error");
-//   }
-// });
+router.get("/event", authorize, async (req, res) => {
+  try {
+    const user = await pool.query(
+        'SELECT * FROM events WHERE user_id = $1', [req.user]
+    );
+    res.json(user.rows);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server error");
+  }
+});
 
 router.post("/habits", async (req, res) => {
     try {
