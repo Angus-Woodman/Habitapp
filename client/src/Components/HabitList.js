@@ -31,6 +31,7 @@ class HabitList extends React.Component {
             habit: habit,
             date: eventDate
         }
+        console.log(newEvent)
         const options = {
             method: 'POST',
             body: JSON.stringify(newEvent),
@@ -46,6 +47,7 @@ class HabitList extends React.Component {
             habit: habit,
             date: eventDate
         }
+        console.log(deleteEvent)
         const options = {
             method: 'DELETE',
             body: JSON.stringify(deleteEvent),
@@ -64,11 +66,15 @@ class HabitList extends React.Component {
 
                     {this.props.habits.map((item, idx) => {
                         return (
-                            <div className="gridItem" key={idx} onClick={e => this.openModal(e) }>
+                          <div className="gridItem" key={idx}>
+                            <div onClick={e => this.openModal(e) }>
                             <h2>{item.habit}</h2>
-                            <ToggleButton removeEvent={this.removeEvent} submitEvent={this.submitEvent} removeEvent={this.removeEvent} idx={idx} habit={item.habit}/>
                             <p>{item.frequency} times per week </p>
                             </ div>
+                            <div>
+                            <ToggleButton removeEvent={this.removeEvent} submitEvent={this.submitEvent} removeEvent={this.removeEvent} idx={idx} habit={item.habit}/>
+                            </ div>
+                          </div>
                         )
                     })}
 
