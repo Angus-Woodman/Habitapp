@@ -1,7 +1,7 @@
 import React from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import "../styles/HabitInfo.css";
+import "../styles/habitInfo.css";
 
 class HabitInfo extends React.Component {
     state = {

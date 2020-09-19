@@ -71,7 +71,7 @@ const Dashboard = ({setAuth}) => {
         <Fragment>
             <div id="dashboardContainer">
                 <h1 id="dashboardHeading"> {name}'s Habit Tracker </h1>
-                {/*<button id="addHabitButton" onClick={ openModal } >Add habit</button>*/}
+                <button id="addHabitButton" onClick={ openModal } >Add habit</button>
                 <ReactModal className="ReactModal__Overlay ReactModal__Overlay--after-open ReactModal__Overlay--before-close addHabbitModal" isOpen={ isModalOpen }>
                     <AddHabit habits={habits} user_id={ user_id } closeModal = { closeModal } />
                 </ReactModal>
