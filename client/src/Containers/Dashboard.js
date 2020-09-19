@@ -1,4 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
+import "../styles/dashboard.css";
 import { toast } from "react-toastify";
 import HabitList from "../Components/HabitList";
 import ReactModal from 'react-modal';
@@ -21,7 +22,6 @@ const Dashboard = ({setAuth}) => {
             });
 
             const parseRes = await res.json();
-            console.log(parseRes);
             setHabits(parseRes);
             if(parseRes.length !== 0) {
                 setName(parseRes[0].user_name);
@@ -36,7 +36,7 @@ const Dashboard = ({setAuth}) => {
                 setUserId(parseRes.user_id)
             }
 
-            
+
 
         } catch (err) {
             console.error(err.message);
@@ -67,23 +67,22 @@ const Dashboard = ({setAuth}) => {
         getName();
     }, []);
 
-    // console.log(habits);
-
     return (
         <Fragment>
-            <h1> Hello {name}!!!!! </h1>
+            <div id="dashboardContainer">
+                <h1 id="dashboardHeading"> {name}'s Habit Tracker </h1>
+                {/*<button id="addHabitButton" onClick={ openModal } >Add habit</button>*/}
+                <ReactModal className="ReactModal__Overlay ReactModal__Overlay--after-open ReactModal__Overlay--before-close addHabbitModal" isOpen={ isModalOpen }>
+                    <AddHabit habits={habits} user_id={ user_id } closeModal = { closeModal } />
+                </ReactModal>
 
-            <button id="addHabit" onClick={ openModal }>Add habit</button>
-            <ReactModal isOpen={ isModalOpen }>
-                <AddHabit habits={habits} user_id={ user_id } closeModal = { closeModal } />
-            </ReactModal>
+                <button id="logoutButton" className="homepageButtons" onClick={e => logout(e)} >
+                    Logout
+                </button>
 
-            <button id="logout" onClick={e => logout(e)} className="btn btn-primary">
-                Logout
-            </button>
 
-            <HabitList habits={habits}/>
-            
+                <HabitList openAddHabitModal={openModal}  habits={habits}/>
+            </div>
         </Fragment>
     );
 };

@@ -1,14 +1,8 @@
-import React from 'react'
-import { Link } from "react-router-dom"
+import React from 'react';
+import { Link } from "react-router-dom";
+import '../styles/WelcomePage.css';
 
 class WelcomePage extends React.Component {
-
-// Display number of users
-  // componentDidMount = () => {
-  //       fetch('http://localhost:3000/users')
-  //       .then(data => console.log(data.length))
-  //   }
-
     render() {
         return (
             <>
