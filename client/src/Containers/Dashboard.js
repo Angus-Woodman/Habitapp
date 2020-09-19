@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import HabitList from "../Components/HabitList";
 import ReactModal from 'react-modal';
 import AddHabit from '../Components/AddHabit';
-ReactModal.setAppElement("#root");
+if (process.env.NODE_ENV !== "test") ReactModal.setAppElement("#root");
 
 
 const Dashboard = ({setAuth}) => {
@@ -71,7 +71,6 @@ const Dashboard = ({setAuth}) => {
         <Fragment>
             <div id="dashboardContainer">
                 <h1 id="dashboardHeading"> {name}'s Habit Tracker </h1>
-
                 {/*<button id="addHabitButton" onClick={ openModal } >Add habit</button>*/}
                 <ReactModal className="ReactModal__Overlay ReactModal__Overlay--after-open ReactModal__Overlay--before-close addHabbitModal" isOpen={ isModalOpen }>
                     <AddHabit habits={habits} user_id={ user_id } closeModal = { closeModal } />
@@ -80,6 +79,7 @@ const Dashboard = ({setAuth}) => {
                 <button id="logoutButton" className="homepageButtons" onClick={e => logout(e)} >
                     Logout
                 </button>
+
 
                 <HabitList openAddHabitModal={openModal}  habits={habits}/>
             </div>

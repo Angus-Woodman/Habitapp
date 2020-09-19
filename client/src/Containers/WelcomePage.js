@@ -5,17 +5,12 @@ import '../styles/WelcomePage.css';
 class WelcomePage extends React.Component {
     render() {
         return (
-            <section id='welcomePage'>
-                <h1 id='homepageLogo'>Habitapp</h1>
-                <div>
-                    <Link to="/login">
-                        <button className="homepageButtons">Login</button>
-                    </Link>
-                    <Link to="/register">
-                        <button className="homepageButtons">Register</button>
-                    </Link>
-                </div>
-            </section>
+            <>
+                <h1>welcome to our habitapp</h1>
+                <p>How to use our app</p>
+                <Link id='linkLogin' to="/login">Login</Link>
+                <Link id='linkRegister' to="/register">Register</Link>
+            </>
         )
     }
 }

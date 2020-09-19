@@ -5,6 +5,7 @@ import HabitInfo from './HabitInfo';
 import "../styles/habitList.css";
 ReactModal.setAppElement("#root");
 
+
 class HabitList extends React.Component {
     state = {
         isModalOpen: false,
