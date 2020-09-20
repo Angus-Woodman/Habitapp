@@ -7,8 +7,6 @@ CREATE TABLE users(
     user_password VARCHAR(255) NOT NULL
 );
 
-
-
 DROP TABLE IF EXISTS habits;
 
 CREATE TABLE habits (
@@ -16,9 +14,6 @@ CREATE TABLE habits (
     habit VARCHAR(30) NOT NULL,
     frequency INT NOT NULL
 );
-
-
-
 
 DROP TABLE IF EXISTS events;
 
