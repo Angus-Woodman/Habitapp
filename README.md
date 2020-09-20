@@ -3,16 +3,16 @@
 ## Run Instructions
 
 - Fork and clone repo
-- `cd` into `server`
+- `cd server`
   - `npm install`
   - `npm start`
-- `cd` into `client`
+- `cd client`
   - `npm install`
   - `npm start`
 - Make sure to have a PSQL database called `habitapp`
-- `cd` into `server`
+- `cd server`
 - `\i db database.sql`
-- In new repo run `npm start`
+- `npm start`
 
 ## Contributors
 
