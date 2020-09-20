@@ -1,6 +1,10 @@
 # Habbitapp
 
-## Run Instructions
+- A habit-tracking application that allows users to securely register, login, add a new habit to track and check-off whether a habit has been completed today.
+- Users can see more information about their habits by clicking on the habit name on the dashboard page where they will be presented with a calendar.
+  - Clicking on a date in the calendar will add an event to the database for that habit for that day.
+
+## Instructions
 
 - Fork and clone repo
 - `cd server`
@@ -13,6 +17,11 @@
 - `cd server`
 - `\i db database.sql`
 - `npm start`
+
+## Future Features
+
+- Provide user feedback upon adding a new date to the database via clicking on the calendar.
+- Display which dates the habit has been completed on.
 
 ## Contributors
 
