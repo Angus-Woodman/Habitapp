@@ -6,8 +6,12 @@
 
 ![Habitapp](https://res.cloudinary.com/de8a23w1z/image/upload/v1600604998/python_name_generator/Screenshot_2020-09-20_at_13.29.19_u6fuux.png)
 
+![Habitapp](https://res.cloudinary.com/de8a23w1z/image/upload/v1600605036/python_name_generator/Screenshot_2020-09-19_at_15.52.08_aoijnc.png)
+
 - Users can see more information about their habits by clicking on the habit name on the dashboard page where they will be presented with a calendar.
   - Clicking on a date in the calendar will add an event to the database for that habit for that day.
+
+![Habitapp](https://res.cloudinary.com/de8a23w1z/image/upload/v1600607342/python_name_generator/Screenshot_2020-09-20_at_14.08.40_j1hkry.png)
 
 ## Instructions
 
