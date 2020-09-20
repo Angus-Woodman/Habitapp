@@ -16,4 +16,4 @@
 
 ## Contributors
 
-Alex Peirson([@AKP-13](https://github.com/AKP-13)), Angus Woodman([@Angus-Woodman](https://github.com/Angus-Woodman)), Eshan Chatwel([@eshan1799](https://github.com/eshan1799)), and George Olney([@georgeo23](https://github.com/georgeo23)).
+Alex Peirson ([@AKP-13](https://github.com/AKP-13)), Angus Woodman([@Angus-Woodman](https://github.com/Angus-Woodman)), Eshan Chatwel([@eshan1799](https://github.com/eshan1799)), and George Olney([@georgeo23](https://github.com/georgeo23)).
