@@ -1,5 +1,7 @@
 # Habbitapp
 
+![Habitapp](https://res.cloudinary.com/de8a23w1z/image/upload/c_scale,w_829/v1600605020/python_name_generator/Screenshot_2020-09-19_at_15.51.33_jaqdzr.png)
+
 - A habit-tracking application that allows users to securely register, login, add a new habit to track and check-off whether a habit has been completed today.
 - Users can see more information about their habits by clicking on the habit name on the dashboard page where they will be presented with a calendar.
   - Clicking on a date in the calendar will add an event to the database for that habit for that day.
